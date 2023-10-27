@@ -2,6 +2,9 @@
 pragma solidity 0.8.21;
 
 contract DSA {
+   
+   uint public salam = 23;
+   
     function bubbleSort(uint[] memory arr) public pure returns (uint[] memory) {
         bool flag = true;
         for (uint i = 0; i < arr.length; i++) {
