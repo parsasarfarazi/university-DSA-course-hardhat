@@ -6,33 +6,38 @@ contract DSA {
    uint public salam = 23;
    
     function bubbleSort(uint[] memory arr) public pure returns (uint[] memory) {
-        bool flag = true;
-        for (uint i = 0; i < arr.length; i++) {
-            for (uint j = 0; j < arr.length - j; j++) {
-                if (arr[i] > arr[i + 1]) {
-                    uint256 temp = arr[i + 1];
-                    arr[i + 1] = arr[i];
-                    arr[i] = temp;
-                    flag = false;
+        bool flag = false;
+        uint256 temp;
+        uint256 length = arr.length;
+        if(length == 0){
+            return arr;
+        }
+        for (uint256 i = 0; i < length - 1; i++) {
+            for (uint256 j = 0; j < length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                    flag = true;
                 }
             }
-            if (flag == true) {
+            if(!flag) {
                 break;
-            } else {
-                flag == true;
             }
+        
         }
         return arr;
     }
 
-    function insertionSort(
-        uint[] memory arr
-    ) public pure returns (uint[] memory) {
+    function insertionSort(uint[] memory arr) public pure returns (uint[] memory) {
         uint256 n = arr.length;
-        for (uint i = 1; i <= n; i++) {
+        if(n == 0){
+            return arr;
+        }
+        for (uint i = 0; i < n; i++) {
             uint256 key = arr[i];
             uint j = i;
-            while (j > 1 && arr[j - 1] > key) {
+            while (j > 0 && arr[j - 1] > key) {
                 arr[j] = arr[j - 1];
                 j--;
             }
